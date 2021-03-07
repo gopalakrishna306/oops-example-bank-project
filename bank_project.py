@@ -122,3 +122,14 @@ print(ACC100003.balance_statemnt)
 ACC100003.setpassword()
 print(ACC100003.transfer(ACC100001,100))
 
+print(Bank)
+def test(b):
+    obj=b("gopalakrishna",28,"male",500,'kduru','gk12345')
+    return obj
+
+Ac001=test(Bank)
+print(dir(Ac001))
+print(Ac001.balance_statemnt)
+
+
+
