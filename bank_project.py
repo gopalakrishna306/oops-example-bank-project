@@ -18,8 +18,13 @@ class Bank:
         if amout_to_be_with_draw > self.__cur_bal:
             return "insuffciant funds "
         else:
-            self.__cur_bal=self.__cur_bal-amout_to_be_with_draw
-            return self.__cur_bal
+            p_w=input('please enter password to with draw amount ')
+            if p_w==self.__password:
+                self.__cur_bal=self.__cur_bal-amout_to_be_with_draw
+                return  f"{amout_to_be_with_draw}  is debited from your accout your current balance is " +str(self.__cur_bal)
+            else:
+                return 'wrong credentials'
+
     @property
     def balance_statemnt(self):
         return f"{self.__name}_balane amonut  " +str(self.__cur_bal)
@@ -33,13 +38,13 @@ class Bank:
 
     def transfer(self,others,amout):
         if self.__cur_bal > amout:
-            p_w=input(f"{self.__name}  please enter password to send aount to {others.__name} is {amout}:---")
-            if self.__password==p_w:
-                others.deposit(amout)
-                self.__cur_bal=self.withdraw(amout)
-                return "transefer sucessfully after transfer "+ self.balance_statemnt
-            else:
-                return 'wrong passsword'
+            # p_w=input(f"{self.__name}  please enter password to send aount to {others.__name} is {amout}:---")
+            # if self.__password==p_w:
+            #     others.deposit(amout)
+            self.__cur_bal=self.withdraw(amout)
+            return "transefer sucessfully after transfer "+ self.balance_statemnt
+            # else:
+            #     return 'wrong passsword'
         else:
             return 'your balance is less then trying to send'
 
@@ -57,8 +62,6 @@ class Bank:
             return 'passwod is set seucessfully'
         else:
             return 'your old password valid please try again with valid password'
-
-
 
 # print(dir(Bank))
 # print(Bank._Bank__bankname)
